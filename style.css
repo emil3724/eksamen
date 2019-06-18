@@ -34,6 +34,22 @@ a {
     color: #000;
     font-family: 'Source Code Pro', monospace;
     font-size: 1rem;
+
+}
+
+.col a {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8rem;
+    color: black;
+    margin-left: 40px;
+    text-decoration: underline;
+    text-decoration-color: orange;
+    margin-bottom: 20px;
+}
+
+.col a:hover {
+    text-decoration: overline;
+    text-decoration-color: orange;
 }
 
 h2 {
@@ -75,21 +91,6 @@ h6:hover {
     text-decoration-color: orange;
 }
 
-h7 {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.8rem;
-    color: black;
-    margin-left: 40px;
-    text-decoration: underline;
-    text-decoration-color: orange;
-    margin-bottom: 20px;
-}
-
-h7:hover {
-    text-decoration: overline;
-    text-decoration-color: orange;
-}
-
 p {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.9rem;
@@ -101,108 +102,61 @@ p {
 }
 
 /* header */
-
-.header {
+#menu {
     background-color: #fff;
-    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
-    width: 100%;
     z-index: 3;
+    float: right;
+
 }
 
-.header ul {
+#menu ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    overflow: hidden;
     background-color: #fff;
 }
 
-.header li a {
+#menu li a {
     display: block;
-    padding: 20px 20px;
-    border-right: 1px solid #f4f4f4;
-    text-decoration: none;
+    padding: 12px 20px;
 }
 
-.header li a:hover,
-.header .menu-btn:hover {
+#menu li a:hover {
     color: white;
     background-color: #134B7C;
 }
 
-
-/* menu */
-
-.header .menu {
-    clear: both;
-    max-height: 0;
-    transition: max-height .2s ease-out;
+.hidden {
+    /*    display: none;*/
+    /*    transform: scale(0);*/
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
-/* menu icon */
-
-.header .menu-icon {
-    cursor: pointer;
+#menuknap {
     display: inline-block;
-    float: right;
-    padding: 28px 20px;
-    position: relative;
-    user-select: none;
 }
 
-.header .menu-icon .navicon {
-    background: #333;
-    display: block;
-    height: 2px;
-    position: relative;
-    transition: background .2s ease-out;
-    width: 18px;
+#menu {
+    list-style-type: none;
+    transition: transform .3s;
+    transform-origin: top left;
 }
 
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-    background: #333;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
+@media only screen and (min-width: 600px) {
+    #menuknap {
+        display: none;
+    }
 
-.header .menu-icon .navicon:before {
-    top: 5px;
-}
+    #menu.hidden {
+        transform: translateX(0);
+        opacity: 1;
+    }
 
-.header .menu-icon .navicon:after {
-    top: -5px;
-}
-
-/* menu btn */
-
-.header .menu-btn {
-    display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-    max-height: 240px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
-    background: transparent;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
-    transform: rotate(-45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
-    transform: rotate(45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-    top: 0;
+    #menu li {
+        display: inline-block;
+        max-height: 10vw;
+    }
 }
 
 
@@ -210,22 +164,6 @@ p {
 #frontpage {
     display: flex;
     flex-wrap: wrap;
-}
-
-#js_container {
-    position: absolute;
-    top: 0.5vw;
-    left: 63vw;
-    width: 3vw;
-    height: 3vw;
-}
-
-#js_sprite {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url(img/smiley.svg);
-    background-size: 100%;
 }
 
 /*info.html*/
@@ -294,7 +232,8 @@ p {
 
 
 #ux .sectionwrapper,
-#animation .sectionwrapper {
+#animation .sectionwrapper,
+#animation_1 .sectionwrapper {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
@@ -303,6 +242,7 @@ p {
 
 #ux .col,
 #content .col,
+#animation_1 .col,
 #animation .col,
 #web .col {
     flex-basis: 500px;
@@ -314,6 +254,7 @@ p {
 
 #ux .col_narrow,
 #animation .col_narrow,
+#animation_1 .col_narrow,
 #web .col_narrow,
 #content .col_narrow {
     flex-basis: 500px;
@@ -392,31 +333,6 @@ i {
     }
 }
 
-.js {
-    animation-name: overshoot_kf;
-    animation-duration: 8s;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
-}
-
-@keyframes overshoot_kf {
-    0% {
-        left: 0vw;
-    }
-
-    50% {
-        left: 62vw;
-    }
-
-    70% {
-        left: 50vw;
-    }
-
-    100% {
-        left: 65vw;
-    }
-}
-
 .fade_in_1 {
     animation-name: fade_in_kf;
     animation-duration: 2s;
@@ -477,42 +393,7 @@ i {
     }
 }
 
-.rotation {
-    animation-name: rotation_kf;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes rotation_kf {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 /*media q*/
-@media (min-width: 800px) {
-    .header li {
-        float: left;
-    }
-
-    .header li a {
-        padding: 20px 30px;
-    }
-
-    .header .menu {
-        float: right;
-        max-height: 10vw;
-    }
-
-    .header .menu-icon {
-        display: none;
-    }
-}
 
 @media only screen and (min-width: 966px) {
     div.heading {
@@ -535,12 +416,6 @@ i {
         flex-grow: 1;
         flex-basis: 300px;
         float: left;
-    }
-}
-
-@media screen and (max-width: 1150px) {
-    div.js {
-        display: none;
     }
 }
 
