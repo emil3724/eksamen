@@ -84,7 +84,7 @@ h6:hover {
 
 h7 {
     font-family: 'Source Code Pro', monospace;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: black;
     margin-left: 40px;
     text-decoration: underline;
@@ -103,6 +103,8 @@ p {
     color: #134B7C;
     margin-left: 40px;
     margin-right: 10px;
+    line-height: 1.6;
+
 }
 
 /* header */
@@ -245,6 +247,7 @@ p {
     flex-basis: 500px;
     flex-grow: 1;
     column-width: 500px;
+    margin-right: 20px;
 }
 
 #info .col_info1 {
