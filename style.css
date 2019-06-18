@@ -38,7 +38,7 @@ a {
 
 h2 {
     font-family: 'Source Code Pro', monospace;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: black;
     margin-left: 40px;
     text-decoration: underline;
@@ -48,7 +48,7 @@ h2 {
 h3 {
     font-family: 'Source Code Pro', monospace;
     font-size: 1.0rem;
-    color: #134B7C;
+    color: black;
     margin-left: 40px;
 }
 
@@ -59,13 +59,6 @@ h4 {
     margin-left: 40px;
     text-decoration: overline;
     text-decoration-color: #3E7098;
-}
-
-h5 {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 1rem;
-    color: black;
-    margin-left: 40px;
 }
 
 h6 {
@@ -223,8 +216,8 @@ p {
     position: absolute;
     top: 0.5vw;
     left: 63vw;
-    width: 4vw;
-    height: 3.6vw;
+    width: 3vw;
+    height: 3vw;
 }
 
 #js_sprite {
@@ -256,42 +249,78 @@ p {
 }
 
 /*portefølje.html*/
-#portfolio_intro .sectionwrapper {
+#portfolio .sectionwrapper {
     display: flex;
     flex-wrap: wrap;
     width: 100vw;
     height: 56.25vw;
 }
 
-#portfolio_intro .col_1,
-#portfolio_intro .col_2,
-#portfolio_intro .col_3,
-#portfolio_intro .col_4 {
+#portfolio .col_1,
+#portfolio .col_2,
+#portfolio .col_3,
+#portfolio .col_4 {
     flex-grow: 1;
     flex-basis: 100px;
 }
 
-#portfolio_intro .col_1 {
+#portfolio .col_1 {
     background-color: #8AAECC;
 }
 
-#portfolio_intro .col_2 {
+#portfolio .col_2 {
     background-color: #76A1C4;
 }
 
-#portfolio_intro .col_3 {
+#portfolio .col_3 {
     background-color: #568AB4;
 }
 
-#portfolio_intro .col_4 {
+#portfolio .col_4 {
     background-color: #3E7098;
 }
 
-#portfolio_intro p {
+#portfolio p {
     text-align: left;
     margin-right: 60px;
 }
 
+/*portfolio-emner*/
+#web .sectionwrapper,
+#content .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#ux .sectionwrapper,
+#animation .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+
+#ux .col,
+#content .col,
+#animation .col,
+#web .col {
+    flex-basis: 500px;
+    flex-grow: 1;
+    margin-right: 20px;
+
+}
+
+
+#ux .col_narrow,
+#animation .col_narrow,
+#web .col_narrow,
+#content .col_narrow {
+    flex-basis: 500px;
+    flex-grow: 1;
+}
+
+/*js.knap*/
 #on {
     float: right;
     border: none;
@@ -388,7 +417,6 @@ i {
     }
 }
 
-/*fade_in*/
 .fade_in_1 {
     animation-name: fade_in_kf;
     animation-duration: 2s;
@@ -466,72 +494,6 @@ i {
     }
 }
 
-
-#web .sectionwrapper {
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
-#animation .sectionwrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-
-}
-
-#content .sectionwrapper {
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
-#ux .sectionwrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-}
-
-#web .col {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
-#animation .col {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
-#content .col {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
-#ux .col {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
-#web .col_narrow {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
-#animation .col_narrow {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
-#content .col_narrow {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
-#ux .col_narrow {
-    flex-basis: 500px;
-    flex-grow: 1;
-}
-
 /*media q*/
 @media (min-width: 800px) {
     .header li {
@@ -566,10 +528,10 @@ i {
 
 @media only screen and (max-width: 940px) {
 
-    #portfolio_intro .col_1,
-    #portfolio_intro .col_2,
-    #portfolio_intro .col_3,
-    #portfolio_intro .col_4 {
+    #portfolio .col_1,
+    #portfolio .col_2,
+    #portfolio .col_3,
+    #portfolio .col_4 {
         flex-grow: 1;
         flex-basis: 300px;
         float: left;
@@ -583,7 +545,7 @@ i {
 }
 
 @media screen and (max-width: 1150px) {
-    #portfolio_intro .sectionwrapper {
+    #portfolio .sectionwrapper {
         width: 100vw;
         height: auto;
     }
